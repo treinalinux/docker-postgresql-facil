@@ -11,13 +11,13 @@ Escolheu o repositório certo, até porque se tiver problemas é só apagar o co
 docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
 ```
 
-# Passo 2 - Criando o pgadmin4 para administração
+## Passo 2 - Criando o pgadmin4 para administração
 
 ```bash
 docker run --name my_pgadmin4 -p 5050:5050 -d fenglc/pgadmin4
 ```
 
-# Passo 3 - Logar no pgadmin4
+## Passo 3 - Logar no pgadmin4
 
 Acesso o seu navegador no endereço http://SeuIP:porta, exemplo:
 
@@ -43,3 +43,6 @@ docker rm postgres
 docker rm my_pgadmin4
 ```
 
+---
+## Docker Hub
+- fenglc/pgadmin4](https://hub.docker.com/r/fenglc/pgadmin4)
