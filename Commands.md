@@ -51,6 +51,20 @@ WARNING: psql major version 12, server major version 13.
 You are now connected to database "treinalinux" as user "postgres".
 ```
 
+Or need you exit with "CTRL + d" and connect again
+
+```bash
+psql -h 192.168.0.120 -p 5432 -U postgres -d treinalinux
+Password for user postgres:
+psql (12.7 (Ubuntu 12.7-0ubuntu0.20.04.1), server 13.2 (Debian 13.2-1.pgdg100+1))
+WARNING: psql major version 12, server major version 13.
+         Some psql features might not work.
+Type "help" for help.
+
+treinalinux=#
+
+```
+
 ## Create Table
 
 For create new tables you need you know [DATATYPES](https://www.postgresql.org/docs/12/datatype.html)
@@ -90,5 +104,44 @@ treinalinux=# SELECT * FROM aluno;
  id | nome | cpf | observacao | idade | dinheiro | altura | ativo | hora_aula | matriculado_em
 ----+------+-----+------------+-------+----------+--------+-------+-----------+----------------
 (0 rows)
+
+```
+
+## Insert a new student on table aluno
+
+```postgres
+INSERT INTO aluno (
+	nome,
+	cpf,
+	observacao,
+	idade,
+	dinheiro,
+	altura,
+	ativo,
+	hora_aula,
+	matriculado_em
+)
+VALUES (
+	'Alan',
+	'12345678901',
+	'Aluno entrando pelo programa de bolsas, por causa do desafio de Ruby on Rails',
+	36,
+	100.50,
+	1.81,
+	TRUE,
+	'17:30:00',
+	'2021-07-26 06:49:45'
+)
+
+```
+
+**Now can search on DATABASE with select**
+
+```postgres
+treinalinux=# select * from aluno;
+ id | nome |     cpf     |                                  observacao                                   | idade | dinheiro | altura | ativo | hora_aula |   matriculado_em
+----+------+-------------+-------------------------------------------------------------------------------+-------+----------+--------+-------+-----------+---------------------
+  1 | Alan | 12345678901 | Aluno entrando pelo programa de bolsas, por causa do desafio de Ruby on Rails |    36 |   100.50 |   1.81 | t     | 17:30:00  | 2021-07-26 06:49:45
+(1 row)
 
 ```
